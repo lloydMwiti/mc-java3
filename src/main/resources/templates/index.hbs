@@ -22,15 +22,22 @@
 
     </div>
     <div class="top-tier">
-        <div class="top-left">
-            this is left
+        <div class="top-left v left">
+            {{#if rangers}}
+                {{#each rangers}}
+
+                {{/each}}
+            {{else}}
+                <p>No rangers here</p>
+            {{/if}}
         </div>
     <div class=" top even h ">
 
         <div class="lorem w-25 v center">
             <h2>Welcome to Hero Squad</h2>
             <p>
-                Fill out the form right next if you want to join the squad
+                Fill out the form right next if you see any animals in your sector be sure to fill out all fields
+                and be very descriptive where applicable.
             </p>
         </div>
         <span></span>
@@ -46,17 +53,24 @@
                 <label for="power">Health State</label>
                 <input id="power" required name="health" type="text">
                 <br>
-                <div class="h between w-75">
+                <div class="v left w-100">
+                <label for="region">Which sector are you in(1-12)</label>
+                <input class="" min="1" max="12" required id="region" name="region" type="number">
+                </div>
+                <br>
+                <div class="h around w-100">
                     <label for="age">Animal Age</label>
                     <input class="small-input" min="1" max="240" required id="age" name="age" type="number">
                 </div>
+
+
                 <label for="fight">Is It Endangered :</label>
                 <select name="endangered" required id="fight">
                     <option value="endangered">Endangered</option>
                     <option value="notEndangered">Not Endangered</option>
                 </select>
                 <span> <br></span>
-                <button type="submit" class="btn w-100" class="btn btn-default">Add post</button>
+                <button type="submit" class="btn w-100" class="btn btn-default">Add Report</button>
             </form>
         </div>
     </div>

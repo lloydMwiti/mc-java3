@@ -36,8 +36,9 @@ public class App {
             String name=request.queryParams("name");
             String health=request.queryParams("health");
             String age=request.queryParams("age");
+            String region=request.queryParams("region");
             String endangered=request.queryParams("endangered");
-            taskDao.AddPerson(ranger,name,health,age,endangered);
+            taskDao.AddPerson(ranger,name,health,age,endangered,region);
             return new ModelAndView(model,"success.hbs");
         },new HandlebarsTemplateEngine());
 

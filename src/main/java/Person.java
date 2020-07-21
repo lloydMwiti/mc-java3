@@ -3,6 +3,7 @@ import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 import org.sql2o.Connection;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +17,9 @@ public class Person implements connect{
 
     }
 
-    public void AddPerson(String ranger,String name,String health,String age,String endangered){
-        String sql="INSERT INTO people (ranger ,name ,health, age, endangered) VALUES (:ranger ,:name ,:health, :age, :endangered)";
+    public void AddPerson(String ranger,String name,String health,String age,String endangered,String region){
+        String sql="INSERT INTO people (ranger ,name ,health, age, endangered,date,region) VALUES (:ranger ,:name ,:health, :age, :endangered,:date,:region)";
+        LocalDateTime date=LocalDateTime.now();
         try(Connection con=this.sql2o.open()){
              con.createQuery(sql,true)
                     .addParameter("ranger",ranger)
@@ -25,6 +27,8 @@ public class Person implements connect{
                     .addParameter("health",health)
                     .addParameter("age",age)
                     .addParameter("endangered",endangered)
+                    .addParameter("date", date)
+                    .addParameter("region",region)
                     .executeUpdate()
                      .getKey();
         }catch(Sql2oException e){

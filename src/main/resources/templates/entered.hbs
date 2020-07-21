@@ -6,7 +6,7 @@
     </div>
 
 
-    {{#if person}} <!--if posts exist, then -->
+    {{#if person}}
     <div class=" h-fluid cnt ww-100">
         {{#each person }} <!--loop-->
             <div class="cards">
@@ -22,12 +22,15 @@
                 <p class="sp">{{ health }}</p>
                 <p class="tt">It is :</p>
                 <p class="sp">{{ endangered }} </p>
+                <p class="tt">From Sector :<p class="sp">{{ region }} </p></p>
+
+                <p class="tt"><p class="sp">{{ date }} </p></p>
 
 
             </div>
         {{/each}}</div>
     {{else}} <!--no posts!-->
-    <p>No Squads yet</p>
+    <p>No Reports yet... fill out form if you spot any</p>
     {{/if}}
     {{/partial}}
 {{> layout.hbs}}
