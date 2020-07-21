@@ -9,4 +9,10 @@ create table IF NOT EXISTS people(
     endangered VARCHAR,
     date VARCHAR,
     region VARCHAR
+);
+create table if not exists ranger(
+    id serial primary key,
+    name varchar,
+    email varchar,
+    badge varchar
 )
